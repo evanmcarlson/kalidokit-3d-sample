@@ -2,57 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>KalidoKit - Vtuber Templates</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: #0f0f0f;
-        color: #fff;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-      }
-      h1 { font-size: 2rem; letter-spacing: 0.05em; }
-      .cards {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .card {
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 12px;
-        padding: 2rem 3rem;
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-        transition: border-color 0.2s, background 0.2s;
-      }
-      .card:hover {
-        border-color: #666;
-        background: #222;
-      }
-      .card h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-      .card p { color: #888; font-size: 0.9rem; }
-    </style>
+    <title>KalidoKit - Face and Body Rig Solver</title>
+    <meta name="description" content="Track face and body rigs just your browser webcam!" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="kit.kalidoface.com" />
+    <meta property="twitter:url" content="https://kit.kalidoface.com/" />
+    <meta name="twitter:title" content="KalidoKit - Face and Body Rig Solver" />
+    <meta name="twitter:description" content="Track face and body rigs just your browser webcam!" />
+    <meta name="twitter:image" content="https://cdn.glitch.com/239c5934-4d83-4c5c-bef6-44dcdb04c8fb%2Fkalidoface-meta.jpg?v=1630110302224" />
+    <meta name="viewport" content="viewport-fit=cover, user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="https://yeemachine.github.io/kalidoface-live2d-models/Icons/icon-circle.svg" />
+
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.1/build/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.1/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.130.1/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Three-VRM -->
+    <script src="https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@0.6.7/lib/three-vrm.js"></script>
+
+    <!-- Mediapipe Holistic -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/holistic/holistic.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+
+    <!-- Kalidokit -->
+    <script src="https://cdn.jsdelivr.net/npm/kalidokit@1.1/dist/kalidokit.umd.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>KalidoKit Vtuber Templates</h1>
-    <div class="cards">
-      <a class="card" href="/live2d/">
-        <h2>Live2D</h2>
-        <p>Face tracking with Live2D avatar</p>
-      </a>
-      <a class="card" href="/3d/">
-        <h2>VRM 3D</h2>
-        <p>Full body tracking with VRM avatar</p>
-      </a>
+    <div class="preview">
+      <video class="input_video" width="1280px" height="720px" autoplay muted playsinline></video>
+      <canvas class="guides"></canvas>
     </div>
+    <h1 class="notranslate">
+      <a href="https://3d.kalidoface.com">kalidoface</a>
+    </h1>
+    <nav>
+      <a href="https://www.npmjs.com/package/kalidokit">
+        <img src="https://cdn.glitch.me/447b6603-7eae-4da6-957d-73ee30c8e731%2Fnpm.png?v=1635133318451" />
+      </a>
+      <a href="https://github.com/yeemachine/kalidokit">
+        <img src="https://cdn.glitch.me/447b6603-7eae-4da6-957d-73ee30c8e731%2Fgithub.png?v=1635133310517" />
+      </a>
+      <a href="https://twitter.com/yeemachine">
+        <img src="https://cdn.glitch.me/447b6603-7eae-4da6-957d-73ee30c8e731%2Ftwitter.png?v=1635133322517" />
+      </a>
+    </nav>
+    <p class="linkOut">
+      Visit <a id="full" href="https://kalidoface.com">the full Vtuber App</a>!
+    </p>
+    <script src="script.js"></script>
   </body>
 </html>
